@@ -1,0 +1,11 @@
+{% if module_settings %}
+<div class="flex justify-between items-center mb-4">
+    <h1 class="text-2xl font-bold">{{ action }} {{ modelLabel }}</h1>
+    <a href="{{ url_create }}" class="bg-blue-500 text-white px-4 py-2 rounded">Volver a {{ modelLabel }}</a>
+</div>
+{% else %}
+<div class="flex justify-between items-center mb-4">
+    <h1 class="text-2xl font-bold">{{ pluralModelLabel }}</h1>
+    <a href="{{ url_create }}" class="bg-blue-500 text-white px-4 py-2 rounded">Agregar {{ modelLabel }}</a>
+</div>
+{% endif %}

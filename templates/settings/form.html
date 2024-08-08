@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ pluralModelLabel }}{% endblock %}
+
+{% block content %}
+<div class="p-4">
+    {% include "components/breadcrumb.html" %}
+
+    {% set url_create = url_for('settings.add_setting') %}
+    {% include "components/header_with_button.html" %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {% for field in form %}
+            {% if field.type != 'CSRFTokenField' %}
+                <div class="mb-4">
+                    <label for="{{ field.id }}" class="block text-gray-700 font-bold mb-2">{{ field.label }}</label>
+                    {% if field.type == 'FileField' %}
+                        {{ field(class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+                        {% if field.data %}
+                            <div class="mt-2">
+                                <img src="{{ url_for('static', filename='images/logo/' ~ field.data) }}" alt="Current Logo" class="h-20">
+                                <div class="mt-2">
+                                    <input type="checkbox" id="delete_logo" name="delete_logo">
+                                    <label for="delete_logo">Eliminar Logo Actual</label>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% elif 'color' in field.id %}
+                        <div class="flex items-center">
+                            {{ field(class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+                            <div id="{{ field.id }}-color-box" class="w-10 h-10 ml-4 border" style="background-color: {{ field.data }};"></div>
+                        </div>
+                    {% else %}
+                        {{ field(class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Save</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const colorFields = document.querySelectorAll('input[type="color"]');
+        colorFields.forEach(field => {
+            field.addEventListener('input', (event) => {
+                const colorBox = document.getElementById(`${field.id}-color-box`);
+                colorBox.style.backgroundColor = event.target.value;
+            });
+        });
+    });
+</script>
+{% endblock %}

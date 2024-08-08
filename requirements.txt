@@ -1,0 +1,10 @@
+Flask==2.1.0
+Flask-Migrate==3.1.0
+Flask-SQLAlchemy==2.5.1
+Werkzeug==2.1.0
+python-dotenv==1.0.1
+Flask-WTF==0.15.1
+SQLAlchemy==1.4.25
+mysqlclient==2.1.0
+faker==12.3.1
+email-validator==1.2.0

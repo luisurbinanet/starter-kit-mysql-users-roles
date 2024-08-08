@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="p-4">
+    {% include "components/breadcrumb.html" %}
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+            <h2 class="font-bold text-xl mb-4">Welcome back!</h2>
+            <p class="text-sm text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+            <h2 class="font-bold text-xl mb-4">Quick Stats</h2>
+            <ul>
+                <li class="text-sm text-gray-600">Users: 100</li>
+                <li class="text-sm text-gray-600">Posts: 50</li>
+                <li class="text-sm text-gray-600">Comments: 20</li>
+            </ul>
+        </div>
+        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+            <h2 class="font-bold text-xl mb-4">Recent Activities</h2>
+            <ul>
+                <li class="text-sm text-gray-600">User John Doe logged in.</li>
+                <li class="text-sm text-gray-600">User Jane Doe commented on a post.</li>
+                <li class="text-sm text-gray-600">New post created by Admin.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

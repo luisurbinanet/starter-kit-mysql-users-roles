@@ -1,0 +1,13 @@
+<td class="py-2 px-4 border-b border-gray-200 text-right" style="width: 5%;">
+    <a href="{{ edit_url }}" class="px-1 text-blue-500" title="Editar">
+        <i class="fas fa-edit"></i>
+    </a>
+    <form action="{{ delete_url }}" method="post" style="display:inline;" 
+        onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
+        
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit" class="px-1 text-red-500" title="Eliminar">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </form>
+</td>

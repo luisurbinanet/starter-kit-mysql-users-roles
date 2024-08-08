@@ -1,0 +1,13 @@
+<div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
+    <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+        {% if settings.logo %}
+            <img src="{{ url_for('static', filename='images/logo/' ~ settings.logo) }}" alt="Logo" class="h-10">
+        {% else %}
+            {% set app_name = settings.app_name.split(' ', 1) %}
+            <h2 class="font-bold text-2xl">{{ app_name[0] }}{% if app_name|length > 1 %} <span class="bg-[#f84525] text-white px-2 rounded-md">{{ app_name[1] }}</span>{% endif %}</h2>
+        {% endif %}
+    </a>
+
+    {% include "components/navbar.html" %}
+    
+</div>

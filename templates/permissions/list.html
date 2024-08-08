@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Permissions{% endblock %}
+
+{% block content %}
+<div class="p-4">
+    {% include "components/breadcrumb.html" %}
+
+    {% set url_create = url_for('permissions.create') %}
+    {% include "components/header_with_button.html" %}
+    <table class="min-w-full bg-white mt-4">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b border-gray-200">Name</th>
+                <th class="py-2 px-4 border-b border-gray-200">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for permission in permissions %}
+            <tr>
+                <td class="py-2 px-4 border-b border-gray-200">{{ permission.name }}</td>
+
+                {% set edit_url = url_for('permissions.edit', id=permission.id) %}
+                {% set delete_url = url_for('permissions.delete', id=permission.id) %}
+
+                {% include "components/action_buttons.html" %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

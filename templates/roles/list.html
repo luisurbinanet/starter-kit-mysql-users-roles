@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ pluralModelLabel }}{% endblock %}
+
+{% block content %}
+<div class="p-4">
+    {% include "components/breadcrumb.html" %}
+
+    {% set url_create = url_for('roles.create') %}
+    {% include "components/header_with_button.html" %}
+
+    <table class="min-w-full bg-white mt-4">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b border-gray-200">Nombre</th>
+                <th class="py-2 px-4 border-b border-gray-200">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for role in roles %}
+            <tr>
+                <td class="py-2 px-4 border-b border-gray-200">{{ role.name }}</td>
+                {% set edit_url = url_for('roles.edit', id=role.id) %}
+                {% set delete_url = url_for('roles.delete', id=role.id) %}
+
+                {% include "components/action_buttons.html" %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

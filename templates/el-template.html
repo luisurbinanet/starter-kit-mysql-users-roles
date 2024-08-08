@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admin Panel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        /* Estilos de TailwindCSS personalizados aquí */
+    </style>
+</head>
+<body class="text-gray-800 font-inter">
+    <!--sidenav -->
+    <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
+        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+            <h2 class="font-bold text-2xl">LOREM <span class="bg-[#f84525] text-white px-2 rounded-md">IPSUM</span></h2>
+        </a>
+        <ul class="mt-4">
+            <span class="text-gray-400 font-bold">ADMIN</span>
+            <li class="mb-1 group">
+                <a href="#" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                    <i class="ri-home-2-line mr-3 text-lg"></i>
+                    <span class="text-sm">Dashboard</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="#" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
+                    <i class='bx bx-user mr-3 text-lg'></i>                
+                    <span class="text-sm">Users</span>
+                    <i class="ri-arrow-right-s-line ml-auto"></i>
+                </a>
+                <ul class="pl-7 mt-2 hidden">
+                    <li class="mb-4">
+                        <a href="#" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All</a>
+                    </li> 
+                    <li class="mb-4">
+                        <a href="#" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Roles</a>
+                    </li> 
+                </ul>
+            </li>
+            <li class="mb-1 group">
+                <a href="#" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                    <i class='bx bx-list-ul mr-3 text-lg'></i>                
+                    <span class="text-sm">Activities</span>
+                </a>
+            </li>
+            <span class="text-gray-400 font-bold">BLOG</span>
+            <li class="mb-1 group">
+                <a href="#" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
+                    <i class='bx bxl-blogger mr-3 text-lg' ></i>                 
+                    <span class="text-sm">Post</span>
+                    <i class="ri-arrow-right-s-line ml-auto"></i>
+                </a>
+                <ul class="pl-7 mt-2 hidden">
+                    <li class="mb-4">
+                        <a href="#" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All</a>
+                    </li> 
+                    <li class="mb-4">
+                        <a href="#" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Categories</a>
+                    </li> 
+                </ul>
+            </li>
+            <li class="mb-1 group">
+                <a href="#" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                    <i class='bx bx-bell mr-3 text-lg'></i>                 
+                    <span class="text-sm">Comments</span>
+                </a>
+            </li>
+            <span class="text-gray-400 font-bold">PROFILE</span>
+            <li class="mb-1 group">
+                <a href="#" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                    <i class='bx bx-user-circle mr-3 text-lg'></i>                 
+                    <span class="text-sm">Profile</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="#" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                    <i class='bx bx-log-out mr-3 text-lg'></i>                 
+                    <span class="text-sm">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Contenido -->
+    <div class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all">
+        <div class="p-4">
+            <nav class="text-gray-800 font-bold mb-8">
+                <ol class="flex items-center space-x-2">
+                    <li><a href="#" class="text-xs text-gray-600">Home</a></li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li><span class="text-xs text-gray-600">Dashboard</span></li>
+                </ol>
+            </nav>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                    <h2 class="font-bold text-xl mb-4">Welcome back!</h2>
+                    <p class="text-sm text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                    <h2 class="font-bold text-xl mb-4">Quick Stats</h2>
+                    <ul>
+                        <li class="text-sm text-gray-600">Users: 100</li>
+                        <li class="text-sm text-gray-600">Posts: 50</li>
+                        <li class="text-sm text-gray-600">Comments: 20</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                    <h2 class="font-bold text-xl mb-4">Recent Activities</h2>
+                    <ul>
+                        <li class="text-sm text-gray-600">User John Doe logged in.</li>
+                        <li class="text-sm text-gray-600">User Jane Doe commented on a post.</li>
+                        <li class="text-sm text-gray-600">New post created by Admin.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--sidenav end -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdownToggles = document.querySelectorAll('.sidebar-dropdown-toggle');
+            dropdownToggles.forEach(function (dropdownToggle) {
+                dropdownToggle.addEventListener('click', function () {
+                    var nextElement = dropdownToggle.nextElementSibling;
+                    if (nextElement.classList.contains('hidden')) {
+                        nextElement.classList.remove('hidden');
+                    } else {
+                        nextElement.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

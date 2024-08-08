@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ pluralModelLabel }}{% endblock %}
+
+{% block content %}
+<div class="p-4">
+    {% include "components/breadcrumb.html" %}
+    
+    {% set url_create = url_for('users.create') %}
+    {% include "components/header_with_button.html" %}
+
+    <table class="min-w-full bg-white mt-4">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b border-gray-200 w-20">Avatar</th>
+                <th class="py-2 px-4 border-b border-gray-200">Nombre</th>
+                <th class="py-2 px-4 border-b border-gray-200">Email</th>
+                <th class="py-2 px-4 border-b border-gray-200">Rol</th>
+                <th class="py-2 px-4 border-b border-gray-200">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                {% if user.avatar %}
+                    {% set user_avatar = url_for('static', filename='images/avatar/' ~ user.avatar) %}
+                {% else %}
+                    {% set user_avatar = url_for('static', filename='images/default-avatar.png') %}
+                {% endif %}
+                <tr>
+                    <td class="py-2 px-4 border-b border-gray-200">
+                        <img src="{{ user_avatar }}" alt="Avatar" class="h-10 w-10 rounded-full">
+                    </td>
+                    </td>
+                    <td class="py-2 px-4 border-b border-gray-200">{{ user.name }}</td>
+                    <td class="py-2 px-4 border-b border-gray-200">{{ user.email }}</td>
+                    <td class="py-2 px-4 border-b border-gray-200">{{ user.role.name }}</td>
+
+                    {% set edit_url = url_for('users.edit', id=user.id) %}
+                    {% set delete_url = url_for('users.delete', id=user.id) %}
+
+                    {% include "components/action_buttons.html" %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "components/pagination.html" %}
+</div>
+{% endblock %}
